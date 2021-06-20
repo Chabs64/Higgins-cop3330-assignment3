@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class ParseDataFile
+{
+
+       String: OutputStringBody, OutputStringHeader
+       FILE: InputFile
+
+       Run Program
+       Make ParseDataFile Constructor
+
+       String readDataFile()
+       ParseData()
+
+       FILE getInputFilePointer()
+
+       void printTable(String Header, String Body)
+
+}
+
+class ParseFile{
+
+      ParseFile(FILE)
+      Make ParseFile Constructor
+
+      ArrayOfMap readFile(){return MapArray}
+
+      String makeBodyString() {return BodyFileString}
+
+      String getFileHeader() {return FileHeaderString}
+
+}
+
+ParseDataFile<--ParseFile
+
+
+@enduml
