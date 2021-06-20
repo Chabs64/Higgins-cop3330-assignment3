@@ -43,9 +43,7 @@ Use the program to sort data from a large data set (e.g. census data) and use a 
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Formatter;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class NameSorter {
     private static final File Input41 = new File("exercise41_input.txt");
@@ -63,14 +61,10 @@ public class NameSorter {
         }
 
         //read File(`exercise41_input.txt`) and place it into a array
-        List<String> names = null;
-        while(FileReader.hasNext()) {
+        List<String> names = getNames();
 
-            names.add(FileReader.nextLine());
-
-        }
         //Sort Array alphabetically, pass names
-        //names.sort();
+        Collections.sort(names);
 
         OutputBuilder Build = new OutputBuilder();
 
@@ -91,6 +85,21 @@ public class NameSorter {
 
 
         //enter it into an output File(`exercise41_output.txt`)
+        FilePrint(statement1, statement2);
+
+    }
+
+    public static List<String> getNames() {
+        List<String> names = null;
+        while(FileReader.hasNext()) {
+
+            names.add(FileReader.nextLine());
+
+        }
+        return names;
+    }
+
+    public static void FilePrint(String statement1, String statement2) {
         try(Formatter object = new Formatter("exercise41_output.txt"))
         {
             object.format(statement1 + statement2);
@@ -98,7 +107,6 @@ public class NameSorter {
         catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
 }

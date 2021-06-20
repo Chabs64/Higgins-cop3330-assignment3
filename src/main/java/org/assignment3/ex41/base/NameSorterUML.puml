@@ -9,15 +9,15 @@ class NameSorter{
 
        run program
 
-       (List<String>) readFileInput()
+       getNames()
 
-       PrintOutputString()
+       FilePrint()
 
 }
 
 class OutputBuilder{
 
-        makeNameHeader(int size){return String}
+        makeNameHeader(List<String>){return String}
 
         makeNameBody(List<String>){return String}
 }
