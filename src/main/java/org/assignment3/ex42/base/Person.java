@@ -24,13 +24,7 @@ public class Person {
         return FirstName;
     }
 
-    public String getSalary()
-    {
-        return Salary;
-    }
+    public String getSalary() { return Salary; }
 
-    public String getLastName()
-    {
-        return LastName;
-    }
+    public String getLastName() { return LastName; }
 }
