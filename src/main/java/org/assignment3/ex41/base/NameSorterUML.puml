@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class NameSorter{
+
+        String: Statement1, Statement2
+
+        FILE: input, output
+
+       run program
+
+       String readFileInput()
+
+       String makePrintString()
+
+       void createOutputFILE()
+
+}
+
+class ProcessFile{
+
+        void SortNameArray()
+
+        int getNameArraySize()
+}
+
+ProcessFile-->NameSorter
+
+@enduml
