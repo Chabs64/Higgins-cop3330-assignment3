@@ -43,8 +43,8 @@ Use the program to sort data from a large data set (e.g. census data) and use a 
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.List;
 import java.util.Scanner;
 
 public class NameSorter {
@@ -54,8 +54,6 @@ public class NameSorter {
 
     public static void main(String[] args) {
 
-        NameSorter Sorter = new NameSorter();
-
         //get a file, and check if it exists (make it a file...)
         try {
                 FileReader = new Scanner(Input41);
@@ -64,25 +62,24 @@ public class NameSorter {
                 e.printStackTrace();
         }
 
-
-
         //read File(`exercise41_input.txt`) and place it into a array
-        String[] names;
+        List<String> names = null;
         while(FileReader.hasNext()) {
 
-            names = FileReader.nextLine().split(", ");
-
-
+            names.add(FileReader.nextLine());
 
         }
-        //Sort Array alphabetically, pass FileText
+        //Sort Array alphabetically, pass names
+        names.sort();
 
-        //get array length and save it to a string "statement 1"
+        OutputBuilder Build = new OutputBuilder();
+
+        //get array length and save it to a string "statement 1", transfer to new class
         //Total of 7 names
         //-----------------
-        String statement1;
+        String statement1 = Build.makeNameHeader(names);
 
-        //enter the array of maps into string "statement 2"
+        //enter the array of maps into string "statement 2", transfer to new class
         //Johnson, Jim
         //Jones, Aaron
         //Jones, Chris
@@ -90,7 +87,8 @@ public class NameSorter {
         //Swift, Geoffrey
         //Xiong, Fong
         //Zarnecki, Sabrina
-        String statement2;
+        String statement2 = Build.makeNameBody(names);
+
 
         //enter it into an output File(`exercise41_output.txt`)
         try(Formatter object = new Formatter("exercise41_output.txt"))

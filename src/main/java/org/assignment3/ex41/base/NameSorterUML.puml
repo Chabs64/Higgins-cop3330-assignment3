@@ -3,27 +3,25 @@
 
 class NameSorter{
 
-        String: Statement1, Statement2
+       String: Statement1, Statement2
 
-        FILE: input, output
+       FILE: input, output
 
        run program
 
-       String readFileInput()
+       (List<String>) readFileInput()
 
-       String makePrintString()
-
-       void createOutputFILE()
+       PrintOutputString()
 
 }
 
-class ProcessFile{
+class OutputBuilder{
 
-        void SortNameArray()
+        makeNameHeader(int size){return String}
 
-        int getNameArraySize()
+        makeNameBody(List<String>){return String}
 }
 
-ProcessFile-->NameSorter
+OutputBuilder-->NameSorter
 
 @enduml
