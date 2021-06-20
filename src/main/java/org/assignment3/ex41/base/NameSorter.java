@@ -70,7 +70,7 @@ public class NameSorter {
 
         }
         //Sort Array alphabetically, pass names
-        names.sort();
+        //names.sort();
 
         OutputBuilder Build = new OutputBuilder();
 
