@@ -5,15 +5,9 @@ class ParseDataFile
 {
 
        String: OutputStringBody, OutputStringHeader
-       FILE: InputFile
+       FILE: Input42
 
        Run Program
-       Make ParseDataFile Constructor
-
-       String readDataFile()
-       ParseData()
-
-       FILE getInputFilePointer()
 
        void printTable(String Header, String Body)
 
@@ -21,18 +15,35 @@ class ParseDataFile
 
 class ParseFile{
 
-      ParseFile(FILE)
-      Make ParseFile Constructor
+      Scanner FileReader
 
-      ArrayOfMap readFile(){return MapArray}
+      Constructor ParseFile(Scanner)
 
-      String makeBodyString() {return BodyFileString}
+      readFile(){return PersonList}
 
-      String getFileHeader() {return FileHeaderString}
+      String makeBodyString() {return BodyString}
+
+      String getHeader() {return HeaderString}
 
 }
 
+class Person
+{
+    String: FirstName, LastName, Salary
+
+    Constructor Person(FirstName, LastName, Salary)
+
+    getFirstName()
+
+    getLastName()
+
+    getNumber()
+}
+
 ParseDataFile<--ParseFile
+
+ParseFile<-Person
+ParseDataFile<-Person
 
 
 @enduml

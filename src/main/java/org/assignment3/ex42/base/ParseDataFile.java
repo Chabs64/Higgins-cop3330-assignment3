@@ -43,28 +43,46 @@ Sort the results by salary from highest to lowest.
 Rework your program to use a CSV parsing library and compare the results.
  */
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ParseDataFile {
-    private static final Scanner FileReader = new Scanner("exercise42_input.txt");
+    private static final File Input42 = new File("exercise42_input.txt");
+    private static Scanner FileReader;
 
     public static void main(String[] args) {
 
         //read Input File(`exercise42_input.txt`) see if it exists
+        try {
+            FileReader = new Scanner(Input42);
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
+            e.printStackTrace();
+        }
 
         //make receiving strings
         String Header;
         String Body;
 
         //make ParseFile instance, pass input File
+        ParseFile MainText = new ParseFile(FileReader);
 
         //get output header
+        Header = MainText.getHeader();
+
         //get output body
+        Body = MainText.makeBodyString(MainText.readFile());
 
         //close InputFile
+        FileReader.close();
 
         //printTable, with Header and Body
+        PrintTable(Header + Body);
 
+    }
 
+    public static void PrintTable(String s) {
+        System.out.println(s);
     }
 }

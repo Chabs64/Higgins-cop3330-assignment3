@@ -6,34 +6,53 @@
 
 //String[] Array = input.split(",");
 //.valueOf(charArray, starting index, ending index)
-//.substring(up to 3, not inlcudeing 6)
+//.substring(up to 3, not including 6)
 package org.assignment3.ex42.base;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class ParseFile {
+    private final Scanner fileReader;
 
-
-    //make constructor
-    /*
-    public ParseFile(FILE) {
-        this.file = FILE;
+    public ParseFile(Scanner fileReader) {
+        this.fileReader = fileReader;
     }
-    */
 
-    // make array of maps to hold file contents
-    public void readFile(){}
+    // make array of person to hold file contents
+    public List<Person> readFile(){
+        List<Person> BodyArray = new ArrayList<Person>();
+
+        String[] text;
+        while(fileReader.hasNext())
+        {
+            text = fileReader.nextLine().split(",*");
+            Person Employee = new Person(text[0], text[1], text[2]);
+            BodyArray.add(Employee);
+        }
+
+        return BodyArray;
+    }
+
+
 
     //process file into string.
-    public String makeBodyString()
+    public String makeBodyString(List<Person> PersonList)
     {
-        String BodyFileString = "";
-        return BodyFileString;
+        String BodyString = String.format("%10s %10s %10s", PersonList.get(0).getFirstName(), PersonList.get(0).getLastName(), PersonList.get(0).getSalary());
+        for (int i=1; i<PersonList.size(); i++) {
+            BodyString = BodyString.concat(String.format("%10s %10s %10s", PersonList.get(0).getFirstName(), PersonList.get(0).getLastName(), PersonList.get(0).getSalary())+"\n");
+        }
+
+        return BodyString;
     }
 
     //make and return header
-    public String getFileHeader()
+    public String getHeader()
     {
-        String FileHeaderString = "Last      First     Salary\n" +
+        String HeaderString = "Last      First     Salary\n" +
                 "--------------------------";
-        return FileHeaderString;
+        return HeaderString;
     }
 }
