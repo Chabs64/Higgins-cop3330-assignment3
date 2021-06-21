@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class WordFinder(){
+
+    readFile(){return String}
+
+    editText(){return String}
+
+
+
+}
+
+@enduml
