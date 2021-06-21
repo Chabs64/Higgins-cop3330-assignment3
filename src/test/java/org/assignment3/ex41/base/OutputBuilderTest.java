@@ -42,7 +42,7 @@ class OutputBuilderTest {
 
         //when
         String actual = Builder.makeNameHeader(Body);
-        String expected = "Total of 3 names\n-----------------";
+        String expected = "Total of 3 names\n-----------------\n";
 
         //then
         assertEquals(expected, actual);

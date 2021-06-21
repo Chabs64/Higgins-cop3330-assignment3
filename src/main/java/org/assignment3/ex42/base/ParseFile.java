@@ -9,6 +9,7 @@
 //.substring(up to 3, not including 6)
 package org.assignment3.ex42.base;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,10 +25,9 @@ public class ParseFile {
     public List<Person> readFile(){
         List<Person> BodyArray = new ArrayList<Person>();
 
-        String[] text;
         while(fileReader.hasNext())
         {
-            text = fileReader.nextLine().split(",*");
+            String[] text = fileReader.nextLine().split(",");
             Person Employee = new Person(text[0], text[1], text[2]);
             BodyArray.add(Employee);
         }
@@ -40,9 +40,9 @@ public class ParseFile {
     //process file into string.
     public String makeBodyString(List<Person> PersonList)
     {
-        String BodyString = String.format("%10s %10s %10s", PersonList.get(0).getFirstName(), PersonList.get(0).getLastName(), PersonList.get(0).getSalary());
+        String BodyString = String.format("%-9s %-9s %-9s\n", PersonList.get(0).getFirstName(), PersonList.get(0).getLastName(), PersonList.get(0).getSalary());
         for (int i=1; i<PersonList.size(); i++) {
-            BodyString = BodyString.concat(String.format("%10s %10s %10s", PersonList.get(0).getFirstName(), PersonList.get(0).getLastName(), PersonList.get(0).getSalary())+"\n");
+            BodyString = BodyString.concat(String.format("%-9s %-9s %-9s\n", PersonList.get(i).getLastName(), PersonList.get(i).getFirstName(), PersonList.get(i).getSalary()));
         }
 
         return BodyString;
@@ -52,7 +52,7 @@ public class ParseFile {
     public String getHeader()
     {
         String HeaderString = "Last      First     Salary\n" +
-                "--------------------------";
+                "--------------------------\n";
         return HeaderString;
     }
 }

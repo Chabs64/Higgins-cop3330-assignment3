@@ -48,7 +48,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ParseDataFile {
-    private static final File Input42 = new File("exercise42_input.txt");
+    private static final File Input42 = new File("src/main/java/org/assignment3/ex42/base/exercise42_input.txt");
     private static Scanner FileReader;
 
     public static void main(String[] args) {

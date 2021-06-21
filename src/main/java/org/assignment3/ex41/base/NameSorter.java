@@ -46,7 +46,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class NameSorter {
-    private static final File Input41 = new File("exercise41_input.txt");
+    private static final File Input41 = new File("src/main/java/org/assignment3/ex41/base/exercise41_input.txt");
     private static Scanner FileReader;
 
 
@@ -61,7 +61,8 @@ public class NameSorter {
         }
 
         //read File(`exercise41_input.txt`) and place it into a array
-        List<String> names = getNames();
+        List<String> names = new ArrayList<String>();
+        names = getNames(names);
 
         //Sort Array alphabetically, pass names
         Collections.sort(names);
@@ -89,8 +90,8 @@ public class NameSorter {
 
     }
 
-    public static List<String> getNames() {
-        List<String> names = null;
+    public static List<String> getNames(List<String> names) {
+
         while(FileReader.hasNext()) {
 
             names.add(FileReader.nextLine());

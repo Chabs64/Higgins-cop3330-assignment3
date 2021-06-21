@@ -45,7 +45,7 @@ class ParseFileTest {
 
         //when
         String actual = TestText.getHeader();
-        String expected = "Last      First     Salary\n--------------------------";
+        String expected = "Last      First     Salary\n--------------------------\n";
 
         //then
         assertEquals(expected, actual);

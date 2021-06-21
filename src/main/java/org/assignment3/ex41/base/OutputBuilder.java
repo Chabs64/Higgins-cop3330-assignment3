@@ -20,7 +20,7 @@ public class OutputBuilder {
 
     public String makeNameHeader(List<String> names) {
         String statement1 = String.format("Total of %d names\n" +
-                "-----------------", names.size());
+                "-----------------\n", names.size());
         return statement1;
     }
 }
